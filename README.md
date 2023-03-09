@@ -4,7 +4,7 @@
 
 # Important note:
 
-The data it reads and writes are case-sensitive!
+The data it reads and writes is case-sensitive!
 
 ## How does it work
 
