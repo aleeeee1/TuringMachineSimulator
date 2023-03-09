@@ -29,7 +29,6 @@ int replace_things(string &stringa) {  // a[0..3]b
         }
     }
 
-    cout << stringa << endl;
     return stringa.length();
 }
 
