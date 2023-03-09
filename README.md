@@ -2,7 +2,19 @@
 
 > it uses the same syntax used in the official turing competition in Italy.
 
+# Important note:
+
+The data it reads and writes are case-sensitive!
+
 ## How does it work
+
+### Ranges
+
+Ranges are made with ASCII char, so it could be anything like <br>
+`[0..9]`
+`[0..A]`
+`[a..A]`
+the only thing that matters is that the beginning MUST have an ascii char code which has lower value than the ending.
 
 ### Basic syntax
 
