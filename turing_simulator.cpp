@@ -17,7 +17,8 @@ using namespace std;
 
 int replace_things(string &stringa) {  // a[0..3]b
     int index = stringa.find("..");
-    if (index != -1) {
+
+    while (index != -1) {
         int start = stringa[index - 1] - '0';  // trova n
         int end = stringa[index + 2] - '0';    // trova m
 
@@ -27,8 +28,9 @@ int replace_things(string &stringa) {  // a[0..3]b
             char tmp = i + '0';
             stringa += tmp;  // a0123b
         }
-    }
 
+        index = stringa.find("..");
+    }
     return stringa.length();
 }
 
