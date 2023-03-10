@@ -7,7 +7,7 @@
 #include <unordered_map>
 #include <vector>
 
-#ifdef WINDOWS
+#ifdef _WIN64
 #include <windows.h>
 #else
 #include <unistd.h>
@@ -131,7 +131,7 @@ unordered_map<string, unordered_map<char, istruzione>> get_instruction() {
 }
 
 void print_info(string nastro, int passi, string stato, int posizione) {
-#ifdef WINDOWS
+#ifdef _WIN64
     system("cls");
 #else
     cout << "\033c";
@@ -144,8 +144,8 @@ void print_info(string nastro, int passi, string stato, int posizione) {
 }
 
 void actually_sleep(int seconds) {
-#ifdef WINDOWS
-    Sleep(seconds * 1000);
+#ifdef _WIN64
+    Sleep(seconds / 1000);
 #else
     usleep(seconds);
 #endif
