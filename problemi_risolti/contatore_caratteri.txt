@@ -1,0 +1,28 @@
+XXXXXXX
+
+(0, X, 0, X, <)
+(0, -, SETSTOP, 0, >)
+
+(SETSTOP, X, SETSTOP, X, >)
+(SETSTOP, -, GOBACK, C, <)
+
+(GOBACK, X, GOBACK, X, <)
+(GOBACK, 0, 1, 0, >)
+
+(1, X, A1, -, -)
+
+(A1, -, A1, -, <)
+(A1, [0..8], CONTA, [1..9], >)
+(A1, 9, A2, 0, <)
+
+(A2, -, A2, 0, -)
+(A2, [0..8], CONTA, [1..9], >)
+(A2, 9, A2, 0, <)
+
+(CONTA, [0..9], CONTA, [0..9], >)
+(CONTA, -, CONTA, -, >)
+(CONTA, X, 1, X, -)
+(CONTA, C, END, -, <)
+
+(END, -, END, -, <)
+(END, [0..9], a, [0..9], >)

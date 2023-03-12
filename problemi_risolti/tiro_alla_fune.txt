@@ -1,0 +1,37 @@
+AAAAA=BBBBBB
+
+(0, A, I, A, -)
+
+(I, A, I, A, >)
+(I, =, TA, =, <)
+
+(TA, A, TB, C, >)
+(TA, -, CMPR, -, >)
+(TA, =CD, TA, =CD, <)
+
+(TB, B, TA, C, <)
+(TB, C=D, TB, C=D, >)
+(TB, -, A, -, -)
+
+(CMPR, -=CD, CMPR, -=CD, >)
+(CMPR, B, B, C, >)
+(CMPR, -, PARI, -, <)
+
+(B, BC, B, BC, >)
+(B, -, SB, -, <)
+
+(SB, ABC=, SB, -, <)
+(SB, -, FINE, B, >)
+
+(A, BC, A, BC, >)
+(A, -, SA, -, <)
+
+(SA, ABC=, SA, -, <)
+(SA, -, FINE, A, >)
+
+
+(PARI, BC, PARI, BC, >)
+(PARI, -, SP, -, <)
+
+(SP, ABC=, SP, -, <)
+(SP, -, FINE, =, >)

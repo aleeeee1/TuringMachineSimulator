@@ -1,0 +1,14 @@
+C...#...
+
+(0, C, check0, ., >)
+(check0, ., 0, C, -)
+
+(check0, #, check1, #, >)
+(check0, -, fine, C, >)
+
+(check1, #, no, #, <)
+(check1, ., 0, C, -)
+(check1, -, fine, C, >)
+
+(no, #, no, #, <)
+(no, ., fine, C, -)

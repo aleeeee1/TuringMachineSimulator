@@ -1,0 +1,36 @@
+100 100
+
+(0, [0..9], 0, [0..9], >)
+(0, -, check0, -, >)
+
+(check0, 0, check0, 0, >)
+(check0, -, FINE, -, <)
+(check0, [1..9], aia, [1..9], >)
+
+(aia, [0..9], aia, [0..9], >)
+(aia, -, sottrai, -, <) 
+
+(sottrai, [1..9], inita, [0..8], -)
+(sottrai, 0, oddio, 0, <)
+
+(oddio, [1..9], oddio2, [0..8], >)
+(oddio, 0, oddio, 0, <)
+
+(oddio2, 0, oddio2, 9, >)
+(oddio2, -, inita, -, <)
+
+(inita, [0..9], inita, [0..9], <)
+(inita, -, A1, -, <)
+
+(A1, [0..8], CONTA, [1..9], >)
+(A1, 9, A2, 0, <)
+
+(A2, -, A2, 0, -)
+(A2, [0..8], CONTA, [1..9], >)
+(A2, 9, A2, 0, <)
+
+(CONTA, [0..9], CONTA, [0..9], >)
+(CONTA, -, check0, -, >)
+
+(FINE, 0, FINE, -, <)
+(FINE, -, TADAN, -, -)
