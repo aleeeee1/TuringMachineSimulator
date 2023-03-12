@@ -6,86 +6,64 @@
 
 The data it reads and writes is case-sensitive!
 
-## How does it work
+# Arguments and things
 
-### Ranges
+| Argument | Description      | Parameter                                                    | Default          | Optional |
+| -------- | ---------------- | ------------------------------------------------------------ | ---------------- | -------- |
+| `-v`     | verbose          | (Optional) `float`: seconds to wait between each instruction | `0.02`           | ✅       |
+| `-f`     | read from a file | `file path`: the file path                                   | `istruzioni.txt` | ✅       |
 
-Ranges are made with ASCII char, so it could be anything like <br>
-`[0..9]`
-`[0..A]`
-`[a..A]`
-the only thing that matters is that the beginning MUST have an ascii char code which has lower value than the ending.
-
-### Basic syntax
+## Stupid examples
 
 ```
-(currentState, readChar, finalState, writeChar, move)
+./a.out -v
 ```
 
-example:
-
-```
-(0, -, 0, 0, -)
-```
-
-### Ranges and multicheck
-
-**Example:**
-
-```
-(0, [0..8], 0, [1..9], -)
-```
-
-So this will replace 0 with 1, 1 with 2 and so on
+> Verbose with default wait time
 
 #
 
-**Example2:**
-
 ```
-(0, 10, 0, 21, -)
+./a.out -v -f a.txt
 ```
 
-This will replace 1 with 2, 0 with 1
+> Verbose with default wait time, reading from file
 
 #
 
-**Example3**
-
 ```
-(0, 01234, 0, -, -)
+./a.out -f ./sadasd/fdksf/c.txt
 ```
 
-This will replace 01234 with - (nothing)
+> Reading from file
 
-## How to compile
+#
 
-literally just
+```
+./a.out -f ./sadasd/fdksf/c.txt -v 0.1
+```
+
+> Reading from file with verbose and wait time 0.1s
+
+# How instruction has to be formatted
+
+`istruzioni.txt`
+
+```
+DJBPG
+(0, [B..F][H..Z]G, 0, [A..E][G..Y]-, >)
+```
+
+**First line**: initial tape --> `DJBPG` \
+**Everything below**: instructions --> `(0, [B..F][H..Z]G, 0, [A..E][G..Y]-, >)`
+
+> You can find many examples in `problemi_risolti/`
+
+# Compilation
+
+It works on every OS (in theory) <br>
+Just compile it with
 
 ```
 g++ turing_simulator.cpp
 ```
-
-**it should work on every machine**
-
-## How to use it
-
-```
-./a.out
-```
-
-runs as fast as possible
-
-#
-
-```
-./a.out -v 0.03
-```
-
-with "verbose", shows you the value is working with, state, steps count and goes at the speed you pass (in seconds). <br>
-Note: <br>
-You can simply not pass the speed and it will go as fast as possible.
-
-## How to use it
-
-Write in the first line of `istruzioni.txt` the tape initial status, then write all the code below, then run.
