@@ -7,6 +7,8 @@
 #include <unordered_map>
 #include <vector>
 
+#include "input_handler.cpp"
+
 #ifdef _WIN64
 #include <windows.h>
 #else
@@ -14,6 +16,16 @@
 #endif
 
 using namespace std;
+
+// global stuff
+string filename = "istruzioni.txt";
+bool verbose = false;
+int sleeptime = 0;
+//
+
+bool is_digit(const std::string &str) {
+    return str.find_first_not_of("0123456789") == string::npos;
+}
 
 int replace_things(string &stringa) {  // a[0..3]b
     int index = stringa.find("..");
@@ -96,9 +108,10 @@ class istruzione {
 };
 
 unordered_map<string, unordered_map<char, istruzione>> get_instruction() {
-    ifstream cin("istruzioni.txt");
+    ifstream cin(filename);
 
-    unordered_map<string, unordered_map<char, istruzione>> istruzioni;
+    unordered_map<string, unordered_map<char, istruzione>>
+        istruzioni;
     string input_read;
 
     int linea = 0;
@@ -151,8 +164,20 @@ void actually_sleep(int seconds) {
 #endif
 }
 
-int main(int argc, char *argv[]) {
-    ifstream cin("istruzioni.txt");
+int main(int argc, char **argv) {
+    InputParser arg_handler(argc, argv);
+
+    if (arg_handler.cmdOptionExists("-v")) {
+        verbose = true;
+
+        string value = arg_handler.getCmdOption("-v");
+        sleeptime = !is_digit(value) ? 0.2 * 1000000 : stof(value) * 1000000;
+    }
+
+    string possibile_file = arg_handler.getCmdOption("-f");
+    filename = possibile_file == "" ? filename : possibile_file;
+
+    ifstream cin(filename);
 
     string input;
     getline(cin, input);
@@ -167,9 +192,6 @@ int main(int argc, char *argv[]) {
     int counter = 0;
     bool stopped = false;
     char carattere_letto;
-
-    bool verbose = argc > 1 ? (strcmp("-v", argv[1]) == 0) ? true : false : false;
-    int sleeptime = argc > 2 ? stof(argv[2]) * 1000000 : 0;
 
     while (!stopped) {
         while (position < 0) {
