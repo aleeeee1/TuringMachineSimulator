@@ -45,7 +45,7 @@ The data it reads and writes is case-sensitive!
 
 > Reading from file with verbose and wait time 0.1s
 
-# How instruction has to be formatted
+# Input file structure
 
 `istruzioni.txt`
 
