@@ -10,13 +10,13 @@ The data it reads and writes is case-sensitive!
 
 | Argument | Description      | Parameter                                                    | Default          | Optional |
 | -------- | ---------------- | ------------------------------------------------------------ | ---------------- | -------- |
-| `-v`     | verbose          | (Optional) `float`: seconds to wait between each instruction | `0.02`           | ✅       |
+| `-t`     | verbose          | (Optional) `float`: seconds to wait between each instruction | `0.02`           | ✅       |
 | `-f`     | read from a file | `file path`: the file path                                   | `istruzioni.txt` | ✅       |
 
 ## Stupid examples
 
 ```
-./a.out -v
+./a.out -t
 ```
 
 > Verbose with default wait time
@@ -24,7 +24,7 @@ The data it reads and writes is case-sensitive!
 #
 
 ```
-./a.out -v -f a.txt
+./a.out -t -f a.txt
 ```
 
 > Verbose with default wait time, reading from file
@@ -40,7 +40,7 @@ The data it reads and writes is case-sensitive!
 #
 
 ```
-./a.out -f ./sadasd/fdksf/c.txt -v 0.1
+./a.out -f ./sadasd/fdksf/c.txt -t 0.1
 ```
 
 > Reading from file with verbose and wait time 0.1s
