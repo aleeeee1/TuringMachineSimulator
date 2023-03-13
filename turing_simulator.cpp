@@ -23,8 +23,39 @@ bool verbose = false;
 int sleeptime = 0;
 //
 
-bool is_digit(const std::string &str) {
-    return str.find_first_not_of("0123456789") == string::npos;
+// trim
+void ltrim(string &s, int &counter) {
+    int size = 0;
+    for (int i = 0; i < s.length() && i < counter; i++) {
+        if (s[i] == ' ')
+            size++;
+        else
+            break;
+    }
+
+    s.erase(0, size);
+    counter -= size;
+}
+
+void rtrim(string &s) {
+    int size = 0;
+    for (int i = s.length(); i > 0; i--) {
+        if (s[i] == ' ')
+            size++;
+        else
+            break;
+    }
+    s.erase(s.length() - size, size);
+}
+
+void trim(string &s, int &counter) {
+    rtrim(s);
+    ltrim(s, counter);
+}
+//
+
+bool is_digit(const string &str) {
+    return str.find_first_not_of(".0123456789") == string::npos;
 }
 
 int replace_things(string &stringa) {  // a[0..3]b
@@ -144,11 +175,11 @@ unordered_map<string, unordered_map<char, istruzione>> get_instruction() {
 }
 
 void print_info(string nastro, int passi, string stato, int posizione) {
-#ifdef _WIN64
-    system("cls");
-#else
-    cout << "\033c";
-#endif
+    // #ifdef _WIN64
+    //     system("cls");
+    // #else
+    //     cout << "\033c";
+    // #endif
 
     cout << "Passi eseguiti: " << passi << endl
          << "Stato: " << stato << endl
@@ -167,11 +198,11 @@ void actually_sleep(int seconds) {
 int main(int argc, char **argv) {
     InputParser arg_handler(argc, argv);
 
-    if (arg_handler.cmdOptionExists("-v")) {
+    if (arg_handler.cmdOptionExists("-t")) {
         verbose = true;
 
-        string value = arg_handler.getCmdOption("-v");
-        sleeptime = !is_digit(value) ? 0.2 * 1000000 : stof(value) * 1000000;
+        string value = arg_handler.getCmdOption("-t");
+        sleeptime = !is_digit(value) || value.empty() ? 0.2 * 1000000 : stof(value) * 1000000;
     }
 
     string possibile_file = arg_handler.getCmdOption("-f");
@@ -236,6 +267,7 @@ int main(int argc, char **argv) {
             }
             counter++;
         } else {
+            trim(input, position);
             print_info(input, counter, state, position);
             stopped = true;
         }
