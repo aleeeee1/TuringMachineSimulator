@@ -1,6 +1,8 @@
 # Simple Turing Machine Simulator
 
 > it uses the same syntax used in the official turing competition in Italy.
+> you can find the syntax [here](http://mdt.di.unipi.it/Documentazione/MiniCorso.aspx) \
+> it doesn't fully support the syntax expansion but is WIP! ([here](http://mdt.di.unipi.it/Documentazione/Estensioni2006.aspx))
 
 # Important note:
 
