@@ -175,11 +175,11 @@ unordered_map<string, unordered_map<char, istruzione>> get_instruction() {
 }
 
 void print_info(string nastro, int passi, string stato, int posizione) {
-    // #ifdef _WIN64
-    //     system("cls");
-    // #else
-    //     cout << "\033c";
-    // #endif
+#ifdef _WIN64
+    system("cls");
+#else
+    cout << "\033c";
+#endif
 
     cout << "Passi eseguiti: " << passi << endl
          << "Stato: " << stato << endl
