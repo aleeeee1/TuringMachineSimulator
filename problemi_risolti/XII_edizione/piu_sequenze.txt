@@ -1,0 +1,41 @@
+TTTTTTTF#FTTFTTFT
+
+(0, FT#LX, 0, FT#LX, <)
+(0, -, 1, C, >)
+(0, C, inizia, C, >)
+
+(1, FT#, 1, FT#, >)
+(1, -, 0, L, <)
+
+(inizia, F, F1, X, >)
+(inizia, X, inizia, X, >)
+(inizia, T, T1, X, >)
+(inizia, #, DELL, -, <)
+
+(F1, FT, F1, FT, >)
+(F1, #, F2, #, >)
+
+(T1, FT, T1, FT, >)
+(T1, #, T2, #, >)
+
+(T2, T, T3, X, >)
+(T2, F, F3, X, >)
+
+(T2, X, T2, X, >)
+(T2, L, FINE, L, >)
+
+(F2, TF, F3, X, >)
+(F2, X, F2, X, >)
+(F2, L, FINE, L, >)
+
+(F3, TFXL, F3, TFXL, >)
+(F3, -, 0, F, <)
+
+(T3, TFXL, T3, TFXL, >)
+(T3, -, 0, T, <)
+
+(DELL, XC, DELL, -, <)
+(DELL, -, DELR, -, >)
+
+(DELR, X-, DELR, -, >)
+(DELR, L, FINE, -, >)

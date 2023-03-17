@@ -1,0 +1,65 @@
+..X......
+
+(0, XADGBT, leggi, XADGBT, -)
+(0, ., 0, ., >)
+
+(X, ., X, ., >)
+(X, [A..Z]-, leggi, [A..Z]-, -)
+
+(A, [0..Z]., A1, [0..Z]., >)
+(A1, [0..Z]-., leggi, [0..Z]-., >)
+
+(B, [0..Z]., B2, [0..Z]., <)
+(B2, [0..Z]., B1, [0..Z]., <)
+(B1, [0..Z]-., leggi, [0..Z]-., <)
+
+(D, [0..Z]., D1, [0..Z]., <)
+(D1, A, leggi, A, >)
+(D1, [B..Z].-, leggi, [B..Z].-, -)
+
+(G, [0..Z]., G, [0..Z]., >)
+(G, -, leggi, -, <)
+
+(F, [A..Z]., F, [A..Z]., <)
+(F, -, leggi, -, >)
+
+
+(leggi, X, X, X, >)
+(leggi, A, A, A, >)
+(leggi, B, B, B, <)
+(leggi, D, D, D, <)
+(leggi, G, G, G, >)
+(leggi, F, F, B, <)
+(leggi, T, conta, T, -)
+
+(leggi, .-, a, Y, -)
+
+(conta, [A..Z]., conta, [A..Z]., <)
+(conta, -, SETSTOP, 0, >)
+
+(SETSTOP, [A..Z]., SETSTOP, [A..Z]., >)
+(SETSTOP, T, GOBACK, C, <)
+
+(GOBACK, [A..Z]., GOBACK, [A..Z]., <)
+(GOBACK, 0, 1, 0, >)
+
+(1, [A..Z]., A3, -, -)
+
+(A3, -, A3, -, <)
+(A3, [0..8], CONTA, [1..9], >)
+(A3, 9, A2, 0, <)
+
+(A2, -, A2, 0, -)
+(A2, [0..8], CONTA, [1..9], >)
+(A2, 9, A2, 0, <)
+
+(CONTA, [0..9], CONTA, [0..9], >)
+(CONTA, -, CONTA, -, >)
+(CONTA, [A..Z]., 1, [A..Z]., -)
+(CONTA, C, DEL, -, >)
+
+(DEL, [A..Z]., DEL, -, >)
+(DEL, -, END, -, <)
+
+(END, -, END, -, <)
+(END, [0..9], a, [0..9], >)
