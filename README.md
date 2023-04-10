@@ -69,3 +69,4 @@ Just compile it with
 ```
 g++ turing_simulator.cpp
 ```
+> If you're on Windows and it doesnt work, also add `-std=c++14` when compiling
